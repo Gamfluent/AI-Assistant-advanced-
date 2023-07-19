@@ -70,7 +70,7 @@ def search(text):
         result = cv2.matchTemplate(screen_image, target_image, cv2.TM_CCOEFF_NORMED)
 
         # Define a threshold for matching
-        threshold = 0.5
+        threshold = 0.7
         locations = np.where(result >= threshold)
         locations = list(zip(*locations[::-1]))
 
@@ -113,7 +113,7 @@ def openThings(app):
     try:
         for char in app:
             pyautogui.typewrite(char)
-            time.sleep(0.5)
+            time.sleep(0.01)
 
     except Exception as exception:
         print(exception)
@@ -142,9 +142,6 @@ def find_repeated_indices(lst, word):
 
 # Main loop
 if __name__ == '__main__':
-    #current_time = datetime.now().time()
-    #speak(f"Greetings Kalpa, the time is currently {current_time.strftime('%H:%M')}")
-
     # Parse the command as a list by listening to keywords
     while True:
         #This will split the sentence said by me into a list of words
